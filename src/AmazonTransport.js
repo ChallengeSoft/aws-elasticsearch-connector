@@ -20,12 +20,12 @@ module.exports = awsConfig => {
       // Promise support
       if (typeof callback === 'undefined') {
         return awaitAwsCredentials(awsConfig)
-          .then(() => super.request(params, options))
+          .then(() => { super.request(params, options) })
       }
 
       // Callback support
       awaitAwsCredentials(awsConfig)
-        .then(() => super.request(params, options, callback))
+        .then(() => { super.request(params, options, callback) })
         .catch(callback)
     }
   }
